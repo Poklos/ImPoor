@@ -8,15 +8,45 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject private var vm = ImPoorViewModel()
+    @State private var animateGradient = false
+    @State private var useGradient = false
+
+    
     var body: some View {
+        
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            Image("neutral-face")
+                .resizable()
+                .frame(width: 40, height: 40)
+            Spacer()
+            Text(vm.todaysText)
+                .padding()
+                .multilineTextAlignment(.leading)
+                .font(.system(size: 50))
+                .fontWeight(.heavy)
+                .foregroundStyle(
+                    useGradient ? AnyShapeStyle(LinearGradient(colors: [.green, .blue], startPoint: .topLeading, endPoint: .bottomTrailing))
+                                                : AnyShapeStyle(Color.primary)
+                                )
+                .onTapGesture {
+                    withAnimation(.snappy()) {
+                        useGradient.toggle()
+                    }
+                }
+            
+            
+            Spacer()
+            
+            Link("I'm poor too", destination: URL(string: "https://www.kopiujwklej.net")!)
+                .padding(.bottom, 10)
+                .foregroundColor(.gray.opacity(0.5))
+            
+            
         }
         .padding()
     }
+    
 }
 
 #Preview {

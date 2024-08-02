@@ -11,6 +11,9 @@
 		F05151452C5CD869000C6072 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05151442C5CD869000C6072 /* ContentView.swift */; };
 		F05151472C5CD86A000C6072 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05151462C5CD86A000C6072 /* Assets.xcassets */; };
 		F051514A2C5CD86A000C6072 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F05151492C5CD86A000C6072 /* Preview Assets.xcassets */; };
+		F05151512C5CD897000C6072 /* ImPoorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05151502C5CD896000C6072 /* ImPoorViewModel.swift */; };
+		F05151532C5CD8AA000C6072 /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05151522C5CD8AA000C6072 /* Result.swift */; };
+		F05151552C5CD8C3000C6072 /* IntroView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F05151542C5CD8C3000C6072 /* IntroView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +22,9 @@
 		F05151442C5CD869000C6072 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		F05151462C5CD86A000C6072 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F05151492C5CD86A000C6072 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		F05151502C5CD896000C6072 /* ImPoorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImPoorViewModel.swift; sourceTree = "<group>"; };
+		F05151522C5CD8AA000C6072 /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
+		F05151542C5CD8C3000C6072 /* IntroView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +59,9 @@
 			children = (
 				F05151422C5CD869000C6072 /* ImPoorApp.swift */,
 				F05151442C5CD869000C6072 /* ContentView.swift */,
+				F05151502C5CD896000C6072 /* ImPoorViewModel.swift */,
+				F05151522C5CD8AA000C6072 /* Result.swift */,
+				F05151542C5CD8C3000C6072 /* IntroView.swift */,
 				F05151462C5CD86A000C6072 /* Assets.xcassets */,
 				F05151482C5CD86A000C6072 /* Preview Content */,
 			);
@@ -137,7 +146,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F05151512C5CD897000C6072 /* ImPoorViewModel.swift in Sources */,
 				F05151452C5CD869000C6072 /* ContentView.swift in Sources */,
+				F05151552C5CD8C3000C6072 /* IntroView.swift in Sources */,
+				F05151532C5CD8AA000C6072 /* Result.swift in Sources */,
 				F05151432C5CD869000C6072 /* ImPoorApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
