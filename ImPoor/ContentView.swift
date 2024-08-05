@@ -18,7 +18,7 @@ struct ContentView: View {
         VStack {
             Image("neutral-face")
                 .resizable()
-                .frame(width: 40, height: 40)
+                .frame(width: 30, height: 30)
             Spacer()
             Text(vm.todaysText)
                 .padding()

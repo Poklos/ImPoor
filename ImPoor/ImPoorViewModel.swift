@@ -7,19 +7,22 @@
 
 import SwiftUI
 import Combine
+import UserNotifications
 
 class ImPoorViewModel: ObservableObject {
     @Published var todaysText: String = ""
     private var results = [Result]()
     
+    
     init() {
         Task {
             await loadData()
         }
+        requestAuthorisations()
     }
     
     func loadData() async {
-        guard let url = URL(string: "https://raw.githubusercontent.com/Poklos/impoor/main/impoor.json") else {
+        guard let url = URL(string: "https://raw.githubusercontent.com/Poklos/impoor-data/main/impoor.json") else {
             print("Invalid URL")
             return
         }
@@ -66,4 +69,50 @@ class ImPoorViewModel: ObservableObject {
             defaults.set(today, forKey: "lastUpdated")
         }
     }
+    
+    func requestAuthorisations() {
+            let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+            UNUserNotificationCenter.current().requestAuthorization(options: options) { (success, error) in
+                if let error = error {
+                    print("Error: \(error.localizedDescription)")
+                } else {
+                    print("Success")
+                    self.scheduleDailyNotification()
+                }
+            }
+            
+        }
+    
+    func scheduleDailyNotification() {
+            let center = UNUserNotificationCenter.current()
+            
+            // Clear any existing notifications
+            center.removeAllPendingNotificationRequests()
+            
+            // Create notification content
+            let content = UNMutableNotificationContent()
+            content.title = "I'm poor, you're poor."
+            content.body = "Your daily poor text is waiting for you in the app!"
+            content.sound = UNNotificationSound.default
+            
+            // Configure the recurring date
+            var dateComponents = DateComponents()
+            dateComponents.hour = 10 // 10:00 AM
+
+            
+            // Create the trigger as a repeating event
+            let trigger = UNCalendarNotificationTrigger(dateMatching: dateComponents, repeats: true)
+            
+            // Create the request
+            let request = UNNotificationRequest(identifier: UUID().uuidString, content: content, trigger: trigger)
+            
+            // Register the request with the system
+            center.add(request) { error in
+                if let error = error {
+                    print("Error scheduling notification: \(error.localizedDescription)")
+                } else {
+                    print("Notification scheduled for 10:00 AM daily.")
+                }
+            }
+        }
 }
